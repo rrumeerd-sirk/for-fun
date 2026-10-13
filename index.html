@@ -77,6 +77,45 @@
         text-transform: uppercase;
         letter-spacing: 0.2em;
       }
+
+      /* Corner links */
+      .corner {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-end;
+        z-index: 1000;
+      }
+
+      .corner a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.35rem 0.5rem;
+        border: 2px solid var(--fg);
+        background: #fff;
+        color: var(--fg);
+        text-decoration: none;
+        font-size: 0.85rem;
+        border-radius: 6px;
+      }
+
+      .corner img.avatar {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: block;
+      }
+
+      .repo-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+      }
+
     </style>
   </head>
   <body>
@@ -101,6 +140,19 @@
         </div>
       </div>
       <p>Until 29 Oct</p>
+    </div>
+
+    <!-- Corner links to profile and public repos -->
+    <div class="corner" aria-hidden="false">
+      <a href="https://github.com/rrumeerd-sirk" title="View my GitHub profile" target="_blank" rel="noopener noreferrer">
+        <img class="avatar" src="https://avatars.githubusercontent.com/u/290811326?v=4" alt="rrumeerd-sirk avatar">
+        <span>rrumeerd-sirk</span>
+      </a>
+
+      <nav class="repo-list" aria-label="Public repositories">
+        <a href="https://github.com/rrumeerd-sirk/games" target="_blank" rel="noopener noreferrer">games</a>
+        <a href="https://github.com/rrumeerd-sirk/linux_rune" target="_blank" rel="noopener noreferrer">linux_rune</a>
+      </nav>
     </div>
 
     <script>
