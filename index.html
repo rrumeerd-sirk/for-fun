@@ -29,6 +29,7 @@
         border: 2px solid var(--fg);
         padding: 3rem 4rem;
         background: #fff;
+        min-width: min(90vw, 620px);
       }
 
       h1 {
@@ -36,6 +37,37 @@
         font-size: clamp(2rem, 6vw, 5rem);
         font-weight: 700;
         text-transform: uppercase;
+      }
+
+      .countdown {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+      }
+
+      .time-box {
+        min-width: 86px;
+        padding: 1rem 0.75rem;
+        border: 2px solid var(--fg);
+        background: #fff;
+      }
+
+      .value {
+        display: block;
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .label {
+        display: block;
+        margin-top: 0.5rem;
+        font-size: 0.7rem;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
       }
 
       p {
@@ -50,6 +82,55 @@
   <body>
     <div class="container">
       <h1>Coming Soon</h1>
+      <div class="countdown" aria-label="Countdown to 29 October">
+        <div class="time-box">
+          <span id="days" class="value">0</span>
+          <span class="label">Days</span>
+        </div>
+        <div class="time-box">
+          <span id="hours" class="value">0</span>
+          <span class="label">Hours</span>
+        </div>
+        <div class="time-box">
+          <span id="minutes" class="value">0</span>
+          <span class="label">Minutes</span>
+        </div>
+        <div class="time-box">
+          <span id="seconds" class="value">0</span>
+          <span class="label">Seconds</span>
+        </div>
+      </div>
+      <p>Until 29 Oct</p>
     </div>
+
+    <script>
+      const targetDate = new Date('2026-10-29T00:00:00');
+
+      function updateCountdown() {
+        const now = new Date();
+        const difference = targetDate - now;
+
+        if (difference <= 0) {
+          document.getElementById('days').textContent = '0';
+          document.getElementById('hours').textContent = '0';
+          document.getElementById('minutes').textContent = '0';
+          document.getElementById('seconds').textContent = '0';
+          return;
+        }
+
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((difference / (1000 * 60)) % 60);
+        const seconds = Math.floor((difference / 1000) % 60);
+
+        document.getElementById('days').textContent = String(days).padStart(2, '0');
+        document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+        document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    </script>
   </body>
 </html>
