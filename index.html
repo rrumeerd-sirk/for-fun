@@ -78,7 +78,7 @@
         letter-spacing: 0.2em;
       }
 
-      /* Corner links */
+      /* Corner links (right) */
       .corner {
         position: fixed;
         top: 1rem;
@@ -116,6 +116,37 @@
         gap: 0.35rem;
       }
 
+      /* Left corner links (GitHub Pages) */
+      .corner-left {
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+        z-index: 1000;
+      }
+
+      .corner-left a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.35rem 0.5rem;
+        border: 2px solid var(--fg);
+        background: #fff;
+        color: var(--fg);
+        text-decoration: none;
+        font-size: 0.85rem;
+        border-radius: 6px;
+      }
+
+      .pages-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+      }
+
     </style>
   </head>
   <body>
@@ -142,7 +173,17 @@
       <p></p>
     </div>
 
-    <!-- Corner links to profile and public repos -->
+    <!-- Left corner: GitHub Pages links (user.github.io/repo) -->
+    <div class="corner-left" aria-label="GitHub Pages">
+      <nav class="pages-list" aria-label="GitHub Pages sites">
+        <a href="https://rrumeerd-sirk.github.io/ah-site/" target="_blank" rel="noopener noreferrer">https://rrumeerd-sirk.github.io/ah-site/</a>
+        <a href="https://rrumeerd-sirk.github.io/for-fun/" target="_blank" rel="noopener noreferrer">https://rrumeerd-sirk.github.io/for-fun/</a>
+        <a href="https://rrumeerd-sirk.github.io/games/" target="_blank" rel="noopener noreferrer">https://rrumeerd-sirk.github.io/games/</a>
+        <a href="https://rrumeerd-sirk.github.io/undertale/" target="_blank" rel="noopener noreferrer">https://rrumeerd-sirk.github.io/undertale/</a>
+      </nav>
+    </div>
+
+    <!-- Corner links to profile and public repos (right) -->
     <div class="corner" aria-hidden="false">
       <a href="https://github.com/rrumeerd-sirk" title="View my GitHub profile" target="_blank" rel="noopener noreferrer">
         <img class="avatar" src="https://avatars.githubusercontent.com/u/290811326?v=4" alt="rrumeerd-sirk avatar">
